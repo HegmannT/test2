@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, session        #Imports Flash module
+from flask import Flask, session, render_template        #Imports Flash module
 from flask_session import Session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
@@ -21,10 +21,61 @@ engine = create_engine(os.getenv("DATABASE_URL"))
 db = scoped_session(sessionmaker(bind=engine))
 
 
+#-------------------------------------------------------------------------------
+
+
 @app.route("/")   #App designed in routes, what page want to request, slash represents default page
                     # When user goes to just / on the web page, run the function below, tie imediate function below (homepage)
 def index():
-    return "Project 1: TODO"   #Define index function to return soemthing basic print out
+    return render_template("index.html")   #Define index function to return soemthing basic print out
+
+
+
+#-------------------------------------------------------------------------------
+
+@app.route("/test2")   #New route at page /test2
+def index():
+    return "Page Test 2"
+
+
+
+#-------------------------------------------------------------------------------
+
+@app.route("/<string:name>")   #Template, slash any string called name, the name gets passed into hello function as argument and runs
+                                #Dynamic web application depending on whats passed into the URL
+def hello(name):
+    return f"<h1>Hello, {name}!</h1>" #Can use html with flask like H1 for a header
+
+                                        #Can also load in through flask html files and render them instead (templates section in video)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
