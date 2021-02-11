@@ -27,7 +27,7 @@ db = scoped_session(sessionmaker(bind=engine))
 @app.route("/")   #App designed in routes, what page want to request, slash represents default page
                     # When user goes to just / on the web page, run the function below, tie imediate function below (homepage)
 def index():
-    return render_template("index.html")   #Define index function to return soemthing basic print out
+    return render_template("indexstart.html")   #Define index function to return soemthing basic print out
 
 
 
