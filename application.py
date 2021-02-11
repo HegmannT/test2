@@ -33,7 +33,7 @@ def index():
 
 #-------------------------------------------------------------------------------
 
-@app.route("/test2")   #New route at page /test2
+@app.route("/testNotes")   #New route at page /test2
 def index():
     return render_template("Notes2test.html")
 
